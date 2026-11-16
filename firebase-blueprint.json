@@ -1,0 +1,238 @@
+{
+  "entities": {
+    "StokAksesoris": {
+      "title": "StokAksesoris",
+      "description": "Katalog dan stok produk aksesoris dan sparepart konter",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "brand": { "type": "string" },
+        "variant": { "type": "string" },
+        "costPrice": { "type": "number" },
+        "sellingPrice": { "type": "number" },
+        "stock": { "type": "number" },
+        "minStockAlert": { "type": "number" },
+        "isImeiTracked": { "type": "boolean" },
+        "unit": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["code", "name", "sellingPrice", "stock"]
+    },
+    "HpImei": {
+      "title": "HpImei",
+      "description": "Katalog smartphone dan pelacakan unit IMEI",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "brand": { "type": "string" },
+        "model": { "type": "string" },
+        "variant": { "type": "string" },
+        "costPrice": { "type": "number" },
+        "sellingPrice": { "type": "number" },
+        "stock": { "type": "number" },
+        "minStockAlert": { "type": "number" },
+        "isImeiTracked": { "type": "boolean" },
+        "unit": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["code", "name", "sellingPrice"]
+    },
+    "HpSerial": {
+      "title": "HpSerial",
+      "description": "Nomor seri dan IMEI unit smartphone",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "phoneId": { "type": "string" },
+        "imei1": { "type": "string" },
+        "imei2": { "type": "string" },
+        "serialNumber": { "type": "string" },
+        "color": { "type": "string" },
+        "ramStorage": { "type": "string" },
+        "status": { "type": "string", "enum": ["available", "sold"] },
+        "purchasePrice": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["imei1", "status"]
+    },
+    "User": {
+      "title": "User",
+      "description": "Pengguna dan staf sistem kasir toko",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "uid": { "type": "string" },
+        "username": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string" },
+        "pin": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "StokMaterial": {
+      "title": "StokMaterial",
+      "description": "Katalog dan stok material bangunan",
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "brand": { "type": "string" },
+        "variant": { "type": "string" },
+        "costPrice": { "type": "number" },
+        "sellingPrice": { "type": "number" },
+        "stock": { "type": "number" },
+        "minStockAlert": { "type": "number" },
+        "unit": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["code", "name", "sellingPrice", "stock"]
+    },
+    "StokPupuk": {
+      "title": "StokPupuk",
+      "description": "Katalog dan stok pupuk pertanian",
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "brand": { "type": "string" },
+        "variant": { "type": "string" },
+        "costPrice": { "type": "number" },
+        "sellingPrice": { "type": "number" },
+        "stock": { "type": "number" },
+        "minStockAlert": { "type": "number" },
+        "unit": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["code", "name", "sellingPrice", "stock"]
+    },
+    "StokPertanian": {
+      "title": "StokPertanian",
+      "description": "Katalog dan stok obat-obatan pertanian (pestisida, herbisida, insektisida, fungisida)",
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "brand": { "type": "string" },
+        "variant": { "type": "string" },
+        "costPrice": { "type": "number" },
+        "sellingPrice": { "type": "number" },
+        "stock": { "type": "number" },
+        "minStockAlert": { "type": "number" },
+        "unit": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["code", "name", "sellingPrice", "stock"]
+    },
+    "Penjualan": {
+      "title": "Penjualan",
+      "description": "Riwayat faktur penjualan kasir POS termasuk status pembayaran hutang/tempo, DP, dan cicilan",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "invoiceNumber": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "customerAddress": { "type": "string" },
+        "subtotal": { "type": "number" },
+        "discount": { "type": "number" },
+        "grandTotal": { "type": "number" },
+        "totalCost": { "type": "number" },
+        "totalProfit": { "type": "number" },
+        "paymentMethod": { "type": "string" },
+        "paymentStatus": { "type": "string", "enum": ["paid", "partial", "unpaid"] },
+        "dpAmount": { "type": "number" },
+        "dpMethod": { "type": "string", "enum": ["cash", "transfer", "qris"] },
+        "paidTotal": { "type": "number" },
+        "remainingDebt": { "type": "number" },
+        "paymentHistory": { "type": "array" },
+        "settledAt": { "type": "string" },
+        "amountPaid": { "type": "number" },
+        "changeAmount": { "type": "number" },
+        "cashierUid": { "type": "string" },
+        "status": { "type": "string" },
+        "deliveryType": { "type": "string", "enum": ["pickup", "delivery"] },
+        "deliveryAddress": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "items": { "type": "array" }
+      },
+      "required": ["invoiceNumber", "customerName", "grandTotal", "paymentMethod", "createdAt"]
+    },
+    "Pengeluaran": {
+      "title": "Pengeluaran",
+      "description": "Catatan beban operasional toko dan armada pengiriman",
+      "type": "object",
+      "properties": {
+        "numericId": { "type": "number" },
+        "category": { "type": "string" },
+        "title": { "type": "string" },
+        "amount": { "type": "number" },
+        "expenseDate": { "type": "string" },
+        "paidBy": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["category", "title", "amount", "expenseDate"]
+    },
+    "StoreSettings": {
+      "title": "StoreSettings",
+      "description": "Pengaturan profil toko termasuk konfigurasi QRIS pembayaran",
+      "type": "object",
+      "properties": {
+        "merchantName": { "type": "string" },
+        "nmid": { "type": "string" },
+        "subCode": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["merchantName", "nmid"]
+    }
+  },
+  "firestore": {
+    "/stok_material/{materialId}": {
+      "schema": { "$ref": "#/entities/StokMaterial" },
+      "description": "Koleksi data stok material bangunan toko"
+    },
+    "/stok_pupuk/{pupukId}": {
+      "schema": { "$ref": "#/entities/StokPupuk" },
+      "description": "Koleksi data stok pupuk toko"
+    },
+    "/stok_pertanian/{agricultureId}": {
+      "schema": { "$ref": "#/entities/StokPertanian" },
+      "description": "Koleksi data stok obat-obatan pertanian (pestisida, herbisida, insektisida, fungisida)"
+    },
+    "/stok_aksesoris/{accessoryId}": {
+      "schema": { "$ref": "#/entities/StokAksesoris" },
+      "description": "Koleksi data stok produk aksesoris toko"
+    },
+    "/hp_imei/{phoneId}": {
+      "schema": { "$ref": "#/entities/HpImei" },
+      "description": "Koleksi smartphone yang dilacak dengan IMEI"
+    },
+    "/hp_imei/{phoneId}/serials/{serialId}": {
+      "schema": { "$ref": "#/entities/HpSerial" },
+      "description": "Sub-koleksi unit fisik dan nomor IMEI tiap handphone"
+    },
+    "/penjualan/{saleId}": {
+      "schema": { "$ref": "#/entities/Penjualan" },
+      "description": "Koleksi transaksi penjualan kasir POS dan catatan cicilan piutang pelanggan"
+    },
+    "/pengeluaran/{expenseId}": {
+      "schema": { "$ref": "#/entities/Pengeluaran" },
+      "description": "Koleksi catatan pengeluaran operasional toko dan armada"
+    },
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Koleksi data staf pengguna dan peran akses toko"
+    },
+    "/settings/{settingId}": {
+      "schema": { "$ref": "#/entities/StoreSettings" },
+      "description": "Koleksi pengaturan profil toko dan QRIS"
+    }
+  }
+}

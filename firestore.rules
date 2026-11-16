@@ -1,0 +1,65 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Koleksi Stok Material Bangunan (Semen, Pasir, Besi, Cat, Pipa, dll)
+    match /stok_material/{materialId} {
+      allow read, write: if true;
+    }
+
+    // Koleksi Pupuk & Produk Pertanian
+    match /stok_pupuk/{pupukId} {
+      allow read, write: if true;
+    }
+
+    // Koleksi Obat-Obatan Pertanian (Pestisida, Herbisida, Insektisida, Fungisida)
+    match /stok_pertanian/{agricultureId} {
+      allow read, write: if true;
+    }
+
+    // Metadata internal status inisialisasi awal
+    match /_app_meta/{metaId} {
+      allow read, write: if true;
+    }
+
+    // Koleksi Riwayat Penjualan & Nota Toko
+    match /penjualan/{saleId} {
+      allow read, write: if true;
+    }
+
+    // Koleksi Staf & Pengguna (RBAC Toko Sumber Sewu)
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    // Backward compatibility collections
+    match /stok_aksesoris/{accessoryId} {
+      allow read, write: if true;
+    }
+    match /hp_imei/{phoneId} {
+      allow read, write: if true;
+      match /serials/{serialId} {
+        allow read, write: if true;
+      }
+    }
+
+    // Koleksi Pengeluaran Operasional Toko
+    match /pengeluaran/{expenseId} {
+      allow read, write: if true;
+    }
+
+    // Koleksi Pengaturan Toko (QRIS, dll)
+    match /settings/{settingId} {
+      allow read, write: if true;
+    }
+
+    // Uji koneksi Firestore saat startup
+    match /test/{docId} {
+      allow read: if true;
+    }
+
+    // Koleksi umum fallback
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

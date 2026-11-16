@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="4" y1="60" x2="60" y2="4" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3730a3" />
+      <stop offset="55%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="33" y1="32" x2="53" y2="12" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#6ee7b7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded app badge -->
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#bgGrad)" />
+
+  <!-- Isometric Cube (Material) -->
+  <!-- Top face -->
+  <polygon points="26,18 41,26 26,34 11,26" fill="#ffffff" />
+  <!-- Left face -->
+  <polygon points="11,26 26,34 26,50 11,42" fill="#e0e7ff" />
+  <!-- Right face -->
+  <polygon points="41,26 41,42 26,50 26,34" fill="#a5b4fc" />
+  <!-- Crisp cube edges -->
+  <path
+    d="M26 18 L41 26 L41 42 L26 50 L11 42 L11 26 Z M11 26 L26 34 L41 26 M26 34 L26 50"
+    stroke="#ffffff"
+    stroke-width="2"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  />
+
+  <!-- Leaf (Pupuk & Pertanian) -->
+  <path
+    d="M32 32 C31 20 40 12 53 12 C53 25 45 33 32 32 Z"
+    fill="url(#leafGrad)"
+    stroke="#ffffff"
+    stroke-width="2.4"
+    stroke-linejoin="round"
+  />
+  <!-- Leaf vein -->
+  <path
+    d="M32 32 Q42 23 49 16"
+    stroke="#ffffff"
+    stroke-width="2"
+    stroke-linecap="round"
+  />
+</svg>
